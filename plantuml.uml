@@ -1,0 +1,41 @@
+@startuml
+
+!define RECTANGLE class
+
+' Layers 
+RECTANGLE ControllerLayer {
+    +GET /bootstrap
+    +GET /get-all-fruits
+    +GET /get-fruit/<fruit-name>
+}
+
+RECTANGLE ServiceLayer {
+    +BootstrapService()
+    +GetAllFruitsService()
+    +GetFruitService()
+}
+
+RECTANGLE DataLayer {
+    +createTable()
+    +insertFruit(id, name)
+    +selectByName(name)
+}
+
+' External dependency
+RECTANGLE FruityviceAPI {
+    +fetchFruits()
+    +fetchFruitDetails(fruit-name)
+}
+
+' Relationships
+ControllerLayer --> ServiceLayer : calls
+ServiceLayer --> DataLayer : interacts
+ServiceLayer --> FruityviceAPI : API calls
+DataLayer --> SQLite : stores data
+
+' Database interaction
+RECTANGLE SQLite {
+    +Fruits Table
+}
+
+@enduml
