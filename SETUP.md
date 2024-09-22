@@ -37,3 +37,8 @@ If you want to delete some changes from your local branch/your computer repo.
 If you want to delete some changes from your remote/github repo.
 - Reset hard in your local branch
 - `git push origin --force` - To force delete the changes
+
+#### PROJECT START
+Try to understand what the existing code is doing.
+Here is a project flow diagram/HLD (High-level-design diagram) to illustrate how the server operates.
+![Example flow](./img/example_flow.png)
